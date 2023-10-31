@@ -1,7 +1,9 @@
 import React from 'react';
 import Input from './Input';
 import { useState } from 'react';
-const Post = () => {
+const Post = ( { supabase } ) => {
+
+    const [cssState, setCssState] = useState(""); // default css class FOR BUTTON
 
     const [nameText, setNameText] = useState('');
     const nameInput = (e) => {
@@ -30,7 +32,25 @@ const Post = () => {
 
     const handleButton = () => {
         // all the supabase stuff
-        
+        createPerson();
+        setCssState("submit")
+        setTimeout(() => { setCssState("plain"); }, 1000);
+    };
+    const createPerson = async () => {
+        const { data, error } = await supabase.from("People").insert([
+            {
+                name: nameText,
+                weight: weight,
+                height: height,
+                age: age,
+                sex: sex,
+            },
+        ]);
+        if (error) {
+            console.error("Error inserting data: ", error);
+        } else {
+            console.log("Data inserted successfully:", data);
+        }
     };
 
     return (
@@ -38,9 +58,13 @@ const Post = () => {
             <div className='Post'>
                 <h1>Create your own little dude!</h1>
                 <Input header='Name' placeholder="Enter it's name" type='text' handleInput={nameInput} />
+                <hr />
                 <Input header='Weight' placeholder="Enter it's weight" type='number' handleInput={weightInput} />
+                <hr />
                 <Input header='Height' placeholder="Enter it's height" type='number' handleInput={heightInput} />  
+                <hr />
                 <Input header='Age' placeholder="Enter it's age" type='number' handleInput={ageInput} />
+                <hr />
                 {/* Sex input */}
                 <div className="Input">
                     <h3>Sex</h3>
@@ -59,7 +83,8 @@ const Post = () => {
                         </label>
                     </form>
                 </div>
-                <button type='button' onClick={handleButton}>Submit</button>
+                <hr />
+                <button className={cssState} type='button' onClick={handleButton}>Submit</button>
             </div>
         </div>
         

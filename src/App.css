@@ -51,3 +51,40 @@
   justify-content: center; /* literally no idea why this won't work */
   padding: 5rem;
 }
+
+.Card {
+  border-radius: 10px;
+  border-style: double;
+  border-color: #00000043;
+  height: auto;
+  box-shadow: 0 0 5px 2px #faf9f94d;
+  margin: 2rem;
+  padding: 2rem;
+  text-align: center;
+  width: auto;
+  background-color: #dddbdb
+}
+
+.male {
+  background-color: #bbdaf7
+}
+
+.female {
+  background-color: #ffbbf4
+}
+
+.gallery-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.submit {
+  box-shadow: rgb(0, 0, 0) 0 0 1.5em;
+  transition: box-shadow 0.7s ease;
+}
+
+.plain {
+  box-shadow: rgba(255, 255, 255, 0) 0 0 1.5em;
+  transition: box-shadow 0.7s ease;
+}
