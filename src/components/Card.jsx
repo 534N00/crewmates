@@ -14,7 +14,10 @@ const Card = ( { id, name, age, weight, height, sex, handleDelete } ) => {
                 <button onClick={() => handleDelete(id)}>Delete</button>
                 <Link to={`/edit/${id}`} >
                     <button onClick={() => console.log(`edit id: ${id}`)}>Edit</button>
-                </Link>                
+                </Link>
+                <Link to={`/info/${id}`} >
+                    <button onClick={() => console.log(`edit id: ${id}`)}>Info</button>
+                </Link>          
         </div>
     );
 };

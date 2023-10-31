@@ -6,6 +6,7 @@ import Post from './components/Post';
 import Edit from './components/Edit';
 import Gallery from './components/Gallery';
 import Error from './components/Error';
+import Info from './components/Info';
 import './App.css'
 
 import { createClient } from '@supabase/supabase-js';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" exact element={ <Home /> } />
             <Route path="/post" exact element={ <Post supabase={supabase} /> } />
             <Route path="/edit/:id" element={ <Edit supabase={supabase} /> } />
+            <Route path="/info/:id" element={ <Info supabase={supabase} /> } />
             <Route path="/gallery" exact element={ <Gallery supabase={supabase} /> } />
             <Route path="*" element={ <Error /> } />
           </Route>
