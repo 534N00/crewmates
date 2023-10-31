@@ -21,8 +21,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1; 
-  
+  z-index: 1;
 }
 
 .Navbar ul {
@@ -48,13 +47,7 @@
 
 .Layout {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  padding: 2rem;
-}
-
-.Outlet {
-  display: flex;
-  justify-content: center;
-  padding-top: 2rem;
+  justify-content: center; /* literally no idea why this won't work */
+  padding: 5rem;
 }
